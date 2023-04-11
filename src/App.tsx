@@ -19,9 +19,7 @@ const App = () => {
       ) : (
         <>
           <CityAutocomplete location={location} setLocation={setLocation} />
-          <button onClick={() => GetLocationFromBrowser(setLocation)}>
-            Get Location from Browser
-          </button>
+          <GetLocationFromBrowser setLocation={setLocation} />
         </>
       )}
     </>

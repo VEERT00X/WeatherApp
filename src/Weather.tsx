@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import WeatherTable from "./WeatherTable";
 
 interface location {
   location: {
@@ -31,11 +32,11 @@ const Weather = ({ location }: location) => {
         } else {
           time.push("0" + date.getHours());
         }
-        let Temperature = data.hourly.temperature_2m[i];
-        if (Temperature < 10 || Temperature < -10) {
-          temp.push(`0${Math.round(data.hourly.temperature_2m[i])}°C`);
+        let Temperature = Math.floor(data.hourly.temperature_2m[i]);
+        if (Temperature <= 9 || Temperature <= -9){
+          temp.push(`0${Math.floor(data.hourly.temperature_2m[i])}°C`);
         } else {
-          temp.push(`${Math.round(data.hourly.temperature_2m[i])}°C`);
+          temp.push(`${Math.floor(data.hourly.temperature_2m[i])}°C`);
         }
         rain.push(data.hourly.rain[i]);
       }
@@ -61,11 +62,7 @@ const Weather = ({ location }: location) => {
           <p>Latitude: {location.latitude}</p>
           <p>Longitude: {location.longitude}</p>
           <div>
-            {temperature.map((temp, index) => (
-              <div key={index}>
-                Time : {time[index]} Temperature : {temp} Rain : {rain[index]}
-              </div>
-            ))}
+            <WeatherTable rain={rain} temperature={temperature} time={time} />
           </div>
         </>
       )}
