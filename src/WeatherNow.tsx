@@ -37,7 +37,7 @@ const WeatherNow = ({ temperature, rain }: any) => {
         </div>
         <div className="weather-now__container__data">
           <h2>
-            We have {temperature} and {rain / 100}% chance for
+            We have {temperature} and {rain}% chance for
             rain
           </h2>
         </div>
