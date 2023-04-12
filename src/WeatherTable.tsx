@@ -24,9 +24,9 @@ const WeatherTable = ({ rain, temperature, time }: WeatherTableProps) => {
         <tbody>
           {time.slice(1).map((time, index) => (
             <tr key={time}>
-              <td>{time}</td>
+              <td>{time} : 00</td>
               <td>{temperature[index + 1]}</td>
-              <td>{rain[index + 1]}</td>
+              <td>{rain[index + 1]}%</td>
             </tr>
           ))}
         </tbody>
